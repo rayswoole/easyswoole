@@ -11,8 +11,8 @@ namespace EasySwoole\EasySwoole\Bridge\DefaultCommand;
 
 use EasySwoole\EasySwoole\Bridge\BridgeCommand;
 use EasySwoole\EasySwoole\Bridge\Package;
-use EasySwoole\EasySwoole\Core;
 use EasySwoole\EasySwoole\Config as GlobalConfig;
+use rayswoole\Core;
 
 class Config extends Base
 {

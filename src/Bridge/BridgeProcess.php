@@ -5,7 +5,7 @@ namespace EasySwoole\EasySwoole\Bridge;
 
 
 use EasySwoole\Component\Process\Socket\AbstractUnixProcess;
-use EasySwoole\EasySwoole\Trigger;
+use rayswoole\Trigger;
 use EasySwoole\Socket\Tools\Protocol;
 use Swoole\Coroutine\Socket;
 

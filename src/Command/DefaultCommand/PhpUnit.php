@@ -6,7 +6,7 @@ namespace EasySwoole\EasySwoole\Command\DefaultCommand;
 use Swoole\Coroutine\Scheduler;
 use Swoole\ExitException;
 use EasySwoole\Component\Timer;
-use EasySwoole\EasySwoole\Trigger;
+use rayswoole\Trigger;
 use EasySwoole\Phpunit\Runner;
 use EasySwoole\EasySwoole\Command\CommandInterface;
 use EasySwoole\EasySwoole\Command\Utility;

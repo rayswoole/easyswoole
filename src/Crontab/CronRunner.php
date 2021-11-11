@@ -11,8 +11,7 @@ namespace EasySwoole\EasySwoole\Crontab;
 use Cron\CronExpression;
 use EasySwoole\Component\Timer;
 use EasySwoole\Component\Process\AbstractProcess;
-use EasySwoole\EasySwoole\Task\TaskManager;
-use EasySwoole\EasySwoole\Trigger;
+use rayswoole\TaskManager;
 use Swoole\Table;
 
 class CronRunner extends AbstractProcess

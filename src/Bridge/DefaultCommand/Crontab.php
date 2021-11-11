@@ -11,7 +11,7 @@ namespace EasySwoole\EasySwoole\Bridge\DefaultCommand;
 
 use EasySwoole\EasySwoole\Bridge\BridgeCommand;
 use EasySwoole\EasySwoole\Bridge\Package;
-use EasySwoole\EasySwoole\Task\TaskManager;
+use rayswoole\TaskManager;
 
 class Crontab extends Base
 {

@@ -12,7 +12,7 @@ namespace EasySwoole\EasySwoole\EasySwoole\Command\DefaultCommand;
 use EasySwoole\EasySwoole\EasySwoole\Command\CommandInterface;
 use EasySwoole\EasySwoole\EasySwoole\Command\Utility;
 use EasySwoole\EasySwoole\Config;
-use EasySwoole\EasySwoole\Core;
+use rayswoole\Core;
 
 class Stop implements CommandInterface
 {

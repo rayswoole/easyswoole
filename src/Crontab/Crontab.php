@@ -10,8 +10,8 @@ use EasySwoole\EasySwoole\Crontab\Exception\CronTaskNotExist;
 use EasySwoole\EasySwoole\Crontab\Exception\CronTaskRuleInvalid;
 use EasySwoole\EasySwoole\Crontab\Exception\Exception;
 use EasySwoole\EasySwoole\ServerManager;
-use EasySwoole\EasySwoole\Task\TaskManager;
-use EasySwoole\EasySwoole\Trigger;
+use rayswoole\TaskManager;
+use rayswoole\Trigger;
 use Swoole\Table;
 use EasySwoole\Component\Process\Config as ProcessConfig;
 
@@ -21,6 +21,7 @@ class Crontab
 
     private $table;
     private $tasks = [];
+    private $index = 0;
 
     function __construct()
     {
@@ -39,12 +40,12 @@ class Crontab
     {
         try {
             $ref = new \ReflectionClass($cronTaskClass);
-            if (!$ref->isSubclassOf(AbstractCronTask::class)) {
+            if (!$ref->isSubclassOf(\rayswoole\CronTab::class)) {
                 throw new \InvalidArgumentException("the cron task class {$cronTaskClass} is invalid");
             }
 
             /**
-             * @var $cronTaskClass AbstractCronTask
+             * @var $cronTaskClass \rayswoole\CronTab
              */
             $taskName = $cronTaskClass::getTaskName();
             $taskRule = $cronTaskClass::getRule();
@@ -54,7 +55,8 @@ class Crontab
             }
             if (isset($this->tasks[$taskName])) {
                 Trigger::getInstance()->error("crontab name:{$taskName} is already exist.");
-                return $this;
+                $taskName .= '_'.(++$this->index);
+                //return $this;
             }
             $this->tasks[$taskName] = $cronTaskClass;
         } catch (\Throwable $throwable) {
@@ -67,7 +69,7 @@ class Crontab
     function rightNow(string $taskName)
     {
         if(isset($this->tasks[$taskName])){
-            /** @var AbstractCronTask $class */
+            /** @var \rayswoole\CronTab $class */
             return TaskManager::getInstance()->async($this->tasks[$taskName]);
         }else{
             return false;

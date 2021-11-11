@@ -15,6 +15,7 @@ use Swoole\Redis\Server as RedisServer;
 use Swoole\Server;
 use Swoole\WebSocket\Server as WebSocketServer;
 use Swoole\Http\Server as HttpServer;
+use rayswoole\Trigger;
 
 class ServerManager
 {
